@@ -37,12 +37,14 @@ class AppController {
 		wrapper.appendChild(showGraphic)
 		wrapper.appendChild(showRaw)
 		
+        /*
 		const weight = document.getElementsByClassName('log')[0].innerText
 		const result = Weight.parseLog(weight)
 
 		showTable.addEventListener('click', e => AppController.displayTable(result))		
 		showGraphic.addEventListener('click', e => AppController.displayGraphic(result))
         showRaw.addEventListener('click', e => AppController.displayRaw())
+        */
     }	
 	
 	static displayTable(object) {
@@ -145,6 +147,11 @@ class AppController {
 			t[0].remove()
 		}
 	}
+
+    static loadFile() {
+
+        console.log("file load")
+    }
 }
 
 class Weight {
