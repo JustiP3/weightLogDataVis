@@ -1,12 +1,14 @@
 
 document.addEventListener("DOMContentLoaded", function(){
-    AppController.displayWelcome()
+    
 })
 
 
 // TODO:
 
 /*
+
+
 
 Graphic 
 Need to have access to max and min weight 
@@ -37,14 +39,14 @@ class AppController {
 		wrapper.appendChild(showGraphic)
 		wrapper.appendChild(showRaw)
 		
-        /*
-		const weight = document.getElementsByClassName('log')[0].innerText
+        
+		const weight = document.getElementById('raw').innerText
 		const result = Weight.parseLog(weight)
 
 		showTable.addEventListener('click', e => AppController.displayTable(result))		
 		showGraphic.addEventListener('click', e => AppController.displayGraphic(result))
         showRaw.addEventListener('click', e => AppController.displayRaw())
-        */
+        
     }	
 	
 	static displayTable(object) {
@@ -94,9 +96,9 @@ class AppController {
 	static displayGraphic(object) {		
 		const body = document.getElementsByTagName('body')[0]
 		
-		const p = document.getElementsByTagName('p')
-		if (!!p[0]) {
-			p[0].hidden = true 
+		const p = document.getElementById('raw')
+		if (!!p) {
+			p.hidden = true 
 		}
 		
 		const t = document.getElementsByTagName('table')
@@ -137,9 +139,9 @@ class AppController {
 			g.remove()
 		}
 		
-		const p = document.getElementsByTagName('p')
-		if (!!p[0]) {
-			p[0].hidden = false  
+		const p = document.getElementById('raw')
+		if (!!p) {
+			p.hidden = false  
 		}
 		
 		const t = document.getElementsByTagName('table')
@@ -150,7 +152,24 @@ class AppController {
 
     static loadFile() {
 
-        console.log("file load")
+        const fileToLoad = document.getElementById("fileToLoad").files[0];
+        const fileReader = new FileReader();
+
+        let text 
+        
+        fileReader.onload = function(fileLoadedEvent){
+            text = fileLoadedEvent.target.result; 
+            const p = document.getElementById('raw')
+            if (!!p) {
+                p.hidden = false  
+                p.innerText=text;
+            }           
+            AppController.displayWelcome()
+        };
+        fileReader.onabort = x => console.log("abort")
+        fileReader.onerror = x => console.log("error")
+        
+        fileReader.readAsText(fileToLoad, "UTF-8")
     }
 }
 
