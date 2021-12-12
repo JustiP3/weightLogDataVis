@@ -1,0 +1,80 @@
+body {
+  background-color: darkgray;
+  display: center;
+}
+h1 {
+  color: blue;
+  margin: auto;
+}
+p {
+  color: red;
+  margin: auto;
+}
+
+.wrapper {
+  width: 50%;
+  height: 50%;
+  display: center;
+  margin: auto;
+  display: grid;
+}
+
+.result {
+  padding: 50px;
+  color: blue;
+}
+
+.bar {
+  background-color: FireBrick;
+  padding: 0px;
+  margin: 0px;
+}
+
+.graphContainer {
+  border: solid;
+  border-color: yellow;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  height: calc(100vh - 100px);
+}
+
+.break {
+  flex-basis: 100%;
+  height: 0;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+th,
+td {
+  padding: 15px;
+}
+
+button {
+  margin: 10px;
+}
+
+table {
+  margin: auto;
+  background-color: coral;
+}
